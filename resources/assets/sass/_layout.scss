@@ -1,0 +1,8 @@
+.gap {
+	&.horizontal {
+		width: $gutter;
+	}
+	&.vertical {
+		height: $gutter;
+	}
+}

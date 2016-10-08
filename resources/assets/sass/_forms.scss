@@ -1,0 +1,12 @@
+.input {
+	@extend .input-field;
+	@extend .col;
+	@extend .s12;
+}
+
+.button {
+	@extend .waves-effect;
+	@extend .waves-light;
+	@extend .btn;
+	margin: $gutter/2;
+}
