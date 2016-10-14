@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventosEnlacesTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateEventosEnlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('eventos_enlaces', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('evento_id');
-            $table->integer('enlace_id');
+            $table->string('phone');
+            $table->string('name');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateEventosEnlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eventos_enlaces');
+        Schema::dropIfExists('contacts');
     }
 }

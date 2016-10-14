@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePropietariosTable extends Migration
+class CreatePricesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreatePropietariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('propietarios', function (Blueprint $table) {
+        Schema::create('prices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('email')->unique();
-            $table->string('contrasena');
-            $table->rememberToken();
+            $table->string('description');
+            $table->float('price');
+            $table->integer('place_id');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreatePropietariosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('propietarios');
+        Schema::dropIfExists('prices');
     }
 }

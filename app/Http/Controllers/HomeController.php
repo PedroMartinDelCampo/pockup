@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Pockup\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Place;
+use Pockup\Place;
 
 class HomeController extends Controller
 {

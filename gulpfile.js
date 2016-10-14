@@ -14,8 +14,7 @@ require('laravel-elixir-vue');
  */
 
 elixir(mix => {
-    mix
-       .copy(
+    mix.copy(
  		'node_modules/materialize-sass-origin/sass',
  		'resources/assets/sass/materialize'
  	).copy(
@@ -24,7 +23,5 @@ elixir(mix => {
  	).copy(
             'node_modules/materialize-sass-origin/js/bin/materialize.js',
             'public/js/materialize.js'
-      )
-      .webpack('app.js')
-      .sass('app.scss');
+  	).webpack('app.js').sass('app.scss');
 });

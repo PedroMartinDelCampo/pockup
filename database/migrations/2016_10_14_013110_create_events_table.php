@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGruposEnlacesTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateGruposEnlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupos_enlaces', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('grupo_id');
-            $table->integer('enlace_id');
+            $table->string('name');
+            $table->string('description');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateGruposEnlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupos_enlaces');
+        Schema::dropIfExists('events');
     }
 }

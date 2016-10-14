@@ -1,21 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Pockup\Http\Controllers\Auth;
 
-use App\User;
+use Pockup\Owner;
 use Validator;
-use App\Http\Controllers\Controller;
+use Pockup\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
 
-    private $categories = [
-        'Restaurant',
-        'Gimnasio',
-        'Danza',
-        'Teatro'
-    ];
 
     /*
     |--------------------------------------------------------------------------
@@ -57,9 +51,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'category' => 'required'
+            'email' => 'required|email|max:255|unique:owners',
+            'password' => 'required|min:6|confirmed'
         ]);
     }
 
@@ -71,17 +64,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = new User;
+        $user = new Owner;
         $user->name = $data['name'];
         $user->email = $data['email'];
-        $user->category = $data['category'];
         $user->password = bcrypt($data['password']);
+        $user->is_admin = false;
         $user->save();
         return $user;
     }
 
     public function showRegistrationForm() {
-        return view('auth.register')
-                    ->withCategories($this->categories);
+        return view('auth.register');
     }
 }

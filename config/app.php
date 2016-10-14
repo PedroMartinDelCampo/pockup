@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Pockup\Providers\AppServiceProvider::class,
+        Pockup\Providers\AuthServiceProvider::class,
+        // Pockup\Providers\BroadcastServiceProvider::class,
+        Pockup\Providers\EventServiceProvider::class,
+        Pockup\Providers\RouteServiceProvider::class,
 
     ],
 

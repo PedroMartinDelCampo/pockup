@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCostosTable extends Migration
+class CreateOwnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateCostosTable extends Migration
      */
     public function up()
     {
-        Schema::create('costos', function (Blueprint $table) {
+        Schema::create('owners', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion');
-            $table->float('costo');
-            $table->integer('lugar_id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->boolean('is_admin');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateCostosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('costos');
+        Schema::dropIfExists('owners');
     }
 }

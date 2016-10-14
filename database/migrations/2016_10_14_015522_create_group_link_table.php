@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactosTable extends Migration
+class CreateGroupLinkTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateContactosTable extends Migration
      */
     public function up()
     {
-        Schema::create('contactos', function (Blueprint $table) {
+        Schema::create('group_link', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('telefono');
-            $table->string('nombre');
-            $table->string('email');
+            $table->integer('group_id');
+            $table->integer('link_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateContactosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactos');
+        Schema::dropIfExists('group_link');
     }
 }

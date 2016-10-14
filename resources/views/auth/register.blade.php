@@ -27,17 +27,6 @@
                 </label>
             </div>
 
-            <div class="input">
-                <select id="category" name="category" placeholder="{{ trans('auth.select') }}">
-                    @foreach($categories as $category)
-                    <option value="{{ $category }}">
-                        {{ $category }}
-                    </option>
-                    @endforeach
-                </select>
-                <label for="category">{{ trans('auth.category') }}</label>
-            </div>
-
             <div class="input center">
                 <button type="submit" class="button">
                     {{ trans('auth.doRegister') }}

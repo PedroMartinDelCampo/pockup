@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace Pockup;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Costo extends Model
+class Contact extends Model
 {
     //
 }
