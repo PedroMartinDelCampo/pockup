@@ -71,11 +71,10 @@ class PlaceController extends Controller
         $photo = $request->file('photo');
         $path = 'storage/places/' . $place->id . '.' ;
         $path .= $photo->getClientOriginalExtension();
-        $path = url($path);
         Storage::disk('public')->put(
             $path, file_get_contents($photo->getRealPath())
         );
-        $place->photo = $path;
+        $place->photo = url($path);
         $place->save();
         return redirect()->route('place.index');
     }
