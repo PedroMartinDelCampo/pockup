@@ -4,7 +4,7 @@
     "prod": "gulp --production",
     "dev": "gulp watch"
   },
-  "devDependencies": {
+  "dependencies": {
     "gulp": "^3.9.1",
     "jquery": "^3.1.0",
     "laravel-elixir": "^6.0.0-9",
@@ -12,9 +12,10 @@
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.14.0",
     "vue": "^1.0.26",
-    "vue-resource": "^1.0.2"
-  },
-  "dependencies": {
+    "vue-resource": "^1.0.2",
     "materialize-sass-origin": "^0.97.5"
+  },
+  "scripts": {
+    "postinstall": "gulp --production"
   }
 }
