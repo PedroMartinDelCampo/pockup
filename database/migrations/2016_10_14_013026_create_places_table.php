@@ -23,6 +23,7 @@ class CreatePlacesTable extends Migration
             $table->string('photo');
             $table->float('general_price')->nullable();
             $table->integer('contact_id');
+            $table->integer('owner_id');
             $table->timestamps();
         });
     }

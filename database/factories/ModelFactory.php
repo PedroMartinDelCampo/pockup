@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(Pockup\User::class, function (Faker\Generator $faker) {
+$factory->define(Pockup\Owner::class, function (Faker\Generator $faker) {
     static $password;
 
     return [

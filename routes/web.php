@@ -17,12 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->middleware('auth');
 
-Route::group(['prefix' => 'places'], function() {
-
-	Route::get('/', 'PlacesController@index');
-	Route::post('/', 'PlacesController@registerPlace');
-	Route::get('/new', 'PlacesController@showRegisterPlaceForm');
-
-});
+Route::resource('/place', 'PlaceController');

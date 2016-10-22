@@ -1,0 +1,23 @@
+.collection {
+	.collection-item {
+
+		cursor: pointer;
+
+		.title {
+			font-weight: bold;
+			font-size: 110%;
+		}
+
+		.description {
+			opacity: 0.7;
+		}
+
+		.address {
+			@extend .description;
+		}
+
+		&:hover {
+			@extend .z-depth-3;
+		}
+	}
+}

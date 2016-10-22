@@ -12,11 +12,17 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <style type="text/css">
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { height: 400px; }
+    </style>
+
 
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
+            'googleMapsKey' => 'AIzaSyDuMPzuJm8JsWsYR2hs-G90Dyhl3XIYQ0Q'
         ]); ?>
     </script>
 </head>
@@ -26,6 +32,7 @@
     @include('fragments.messages')
     @yield('content')
     @include('fragments.scripts')
-    
+    @yield('scripts')
+
 </body>
 </html>

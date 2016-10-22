@@ -1,8 +1,6 @@
 /vendor
 /node_modules
-/public/css
-/public/js
-/public/font
-/public/img
+/public
 
 .env
+/nbproject/private/
