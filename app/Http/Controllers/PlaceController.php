@@ -55,26 +55,27 @@ class PlaceController extends Controller
         $contact->name = $request->contact_name;
         $contact->email = $request->contact_email;
         $contact->phone = $request->phone;
+        $contact->save();
 
         $place = new Place();
-        $place->contact()->save($contact);
+        $place->contact_id = $contact->id;
         $place->name = $request->name;
         $place->lat = $request->lat;
         $place->long = $request->long;
         $place->address = $request->address;
         $place->description = $request->description;
-        $place->general_price = $request->general_price;
+        $place->general_price = $request->general_price ?: 0;
         $place->photo = '';
 
         Auth::user()->places()->save($place);
 
         $photo = $request->file('photo');
-        $path = 'storage/places/' . $place->id . '.' ;
+        $path = 'places/' . $place->id . '.' ;
         $path .= $photo->getClientOriginalExtension();
         Storage::disk('public')->put(
             $path, file_get_contents($photo->getRealPath())
         );
-        $place->photo = url($path);
+        $place->photo = url(Storage::url($path));
         $place->save();
         return redirect()->route('place.index');
     }

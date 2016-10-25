@@ -11,7 +11,10 @@ class ApiController extends Controller
     
 	public function places()
 	{
-		return response()->json(Place::all());
+		return response()->json(Place::all()->map(function($place) {
+			$place->contact = $place->contact();
+			return $place;
+		}));
 	}
 
 	public function groups()

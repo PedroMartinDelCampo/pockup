@@ -8,7 +8,7 @@ class Place extends Model
 {
     
 	public function contact() {
-		return $this->hasOne(Contact::class);
+		return Contact::find($this->contact_id);
 	}
 
 }
