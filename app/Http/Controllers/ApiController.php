@@ -5,6 +5,9 @@ namespace Pockup\Http\Controllers;
 use Pockup\Place;
 use Pockup\Group;
 use Pockup\Event;
+use Pockup\User;
+
+use Pockup\Http\Requests\RegisterUserRequest;
 
 class ApiController extends Controller
 {
@@ -25,6 +28,17 @@ class ApiController extends Controller
 	public function events()
 	{
 		return response()->json(Event::all());
+	}
+
+	public function registerUser(RegisterUserRequest $request)
+	{
+		$user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->role = 'user';
+        $user->save();
+        return $user;
 	}
 
 }

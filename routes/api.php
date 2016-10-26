@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::get('events', 'ApiController@events');
 Route::get('groups', 'ApiController@groups');
 Route::get('places', 'ApiController@places');
+Route::post('users', 'ApiController@registerUser');
 
 /*
 Route::get('/user', function (Request $request) {
