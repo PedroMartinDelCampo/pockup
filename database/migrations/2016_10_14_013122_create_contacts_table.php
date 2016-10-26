@@ -18,6 +18,8 @@ class CreateContactsTable extends Migration
             $table->string('phone');
             $table->string('name');
             $table->string('email');
+            $table->integer('contactable_id');
+            $table->string('contactable_type');
             $table->timestamps();
         });
     }

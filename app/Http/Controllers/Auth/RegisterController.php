@@ -2,8 +2,8 @@
 
 namespace Pockup\Http\Controllers\Auth;
 
-use Pockup\Owner;
 use Validator;
+use Pockup\User;
 use Pockup\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -51,7 +51,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:owners',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed'
         ]);
     }
@@ -64,11 +64,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = new Owner;
+        $user = new User;
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
-        $user->is_admin = false;
+        $user->role = 'owner';
         $user->save();
         return $user;
     }

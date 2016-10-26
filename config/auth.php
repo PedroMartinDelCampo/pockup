@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Pockup\Owner::class,
+            'model' => Pockup\User::class,
         ],
 
         // 'users' => [

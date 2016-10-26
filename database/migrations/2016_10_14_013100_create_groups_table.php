@@ -19,7 +19,6 @@ class CreateGroupsTable extends Migration
             $table->boolean('is_lucrative');
             $table->string('description');
             $table->integer('category_id');
-            $table->integer('contact_id');
             $table->timestamps();
         });
     }

@@ -4,11 +4,15 @@ namespace Pockup;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Owner extends Authenticatable
+class User extends Authenticatable
 {
     
-	function places() {
+	public function places() {
 		return $this->hasMany(Place::class);
+	}
+
+	public function role() {
+		return $this->role;
 	}
 
 }

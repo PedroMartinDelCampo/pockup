@@ -55,7 +55,6 @@ class PlaceController extends Controller
         $contact->name = $request->contact_name;
         $contact->email = $request->contact_email;
         $contact->phone = $request->phone;
-        $contact->save();
 
         $place = new Place();
         $place->contact_id = $contact->id;
@@ -66,9 +65,10 @@ class PlaceController extends Controller
         $place->description = $request->description;
         $place->general_price = $request->general_price ?: 0;
         $place->photo = '';
+        $place->contact_id = 0;
 
         Auth::user()->places()->save($place);
-
+        $place->contact()->save($contact);
         $photo = $request->file('photo');
         $path = 'places/' . $place->id . '.' ;
         $path .= $photo->getClientOriginalExtension();
