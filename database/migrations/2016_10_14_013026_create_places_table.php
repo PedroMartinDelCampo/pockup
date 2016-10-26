@@ -22,8 +22,8 @@ class CreatePlacesTable extends Migration
             $table->string('description');
             $table->string('photo');
             $table->float('general_price')->nullable();
-            $table->integer('contact_id');
-            $table->integer('owner_id');
+            $table->integer('user_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

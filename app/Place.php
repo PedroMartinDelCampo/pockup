@@ -8,7 +8,11 @@ class Place extends Model
 {
     
 	public function contact() {
-		return Contact::find($this->contact_id);
+		return $this->morphOne(Contact::class, 'contactable');
+	}
+
+	public function category() {
+		return $this->hasOne(Category::class);
 	}
 
 }
