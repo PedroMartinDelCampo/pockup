@@ -13,10 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('events', 'ApiController@events');
-Route::get('groups', 'ApiController@groups');
-Route::get('places', 'ApiController@places');
+Route::group(['prefix' => 'categories'], function() {
+
+	Route::get('/', 'ApiController@categories');
+
+	Route::group(['prefix' => '{category}'], function() {
+
+		Route::get('/', 'ApiController@category');
+		Route::get('events', 'ApiController@events');
+		Route::get('groups', 'ApiController@groups');
+		Route::get('places', 'ApiController@places');
+		
+	});
+
+});
+
 Route::post('users', 'ApiController@registerUser');
+Route::post('access', 'ApiController@access');
 
 /*
 Route::get('/user', function (Request $request) {
