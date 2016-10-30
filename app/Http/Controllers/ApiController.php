@@ -62,7 +62,8 @@ class ApiController extends Controller
 
 	public function access(AccessRequest $request)
 	{
-		if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
+		$user = User::where('email', $request->email)->get()->first();
+		if ($user && Hash::check($request->password, $user->password)) {
 			return response()->json([
 				'success' => 'Acceso concedido'
 			]);
