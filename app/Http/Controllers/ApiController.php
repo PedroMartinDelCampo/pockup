@@ -2,6 +2,7 @@
 
 namespace Pockup\Http\Controllers;
 
+use Hash;
 use Pockup\Place;
 use Pockup\Group;
 use Pockup\Event;
