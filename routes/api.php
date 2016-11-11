@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/', 'ApiController@index');
+
 Route::group(['prefix' => 'categories'], function() {
 
 	Route::get('/', 'ApiController@categories');
@@ -27,6 +29,8 @@ Route::group(['prefix' => 'categories'], function() {
 	});
 
 });
+
+Route::post('groups', 'GroupsController@create');
 
 Route::post('users', 'ApiController@registerUser');
 Route::post('access', 'ApiController@access');

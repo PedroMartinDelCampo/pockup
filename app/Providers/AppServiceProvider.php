@@ -4,6 +4,8 @@ namespace Pockup\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Pockup\API;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share('api', API::toJson());
     }
 
     /**
