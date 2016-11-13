@@ -3,4 +3,3 @@
 /public
 .env
 /open
-config/database.php
