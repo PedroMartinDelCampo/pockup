@@ -14,8 +14,8 @@ class AddPlaceAndDateToEvents extends Migration
     public function up()
     {
         Schema::table('events', function(Blueprint $table) {
-        	$table->date('when');
-        	$table->integer('place_id');
+        	$table->date('when')->nullable();
+        	$table->integer('place_id')->nullable();
         });
     }
 
