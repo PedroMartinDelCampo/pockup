@@ -35,6 +35,8 @@ Route::post('groups', 'GroupsController@create');
 Route::post('users', 'ApiController@registerUser');
 Route::post('access', 'ApiController@access');
 
+Route::delete('events/{event}', 'EventsController@destroy');
+
 /*
 Route::get('/user', function (Request $request) {
     return $request->user();
