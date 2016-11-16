@@ -45,4 +45,17 @@ class GroupsController extends Controller
 		]);
 	}
 
+	public function destroy(Group $group, Request $request)
+	{
+		if ($request->user = $group->user_id) {
+			$group->delete();
+			return response()->json([
+				'success' => true
+			]);
+		}
+		return response()->json([
+			'success' => false
+		]);
+	}
+
 }

@@ -22,7 +22,8 @@
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-            'googleMapsKey' => 'AIzaSyDuMPzuJm8JsWsYR2hs-G90Dyhl3XIYQ0Q'
+            'googleMapsKey' => 'AIzaSyDuMPzuJm8JsWsYR2hs-G90Dyhl3XIYQ0Q',
+            'baseURL' => url('/')
         ]); ?>
     </script>
 </head>

@@ -33,6 +33,7 @@ Vue.http.interceptors.push((request, next) => {
 require('./forms.js');
 require('./preview.js');
 require('./maps.js');
+require('./api.js');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
