@@ -13,24 +13,12 @@
 		    
 		    @include('fragments.api.get_category')
 
-		    <li>
-		      	<div class="collapsible-header">Listar eventos</div>
-		      	<div class="collapsible-body">
-		      		<p>Lorem ipsum dolor sit amet.</p>
-	      		</div>
-		    </li>
-		    <li>
-		      	<div class="collapsible-header">Listar grupos</div>
-		      	<div class="collapsible-body">
-		      		<p>Lorem ipsum dolor sit amet.</p>
-	      		</div>
-		    </li>
-		    <li>
-		      	<div class="collapsible-header">Listar lugares</div>
-		      	<div class="collapsible-body">
-		      		<p>Lorem ipsum dolor sit amet.</p>
-	      		</div>
-		    </li>
+		    @include('fragments.api.list_events')
+
+		    @include('fragments.api.list_groups')
+		    
+		    @include('fragments.api.list_places')
+		    
 		    <li>
 		      	<div class="collapsible-header">Crear grupo</div>
 		      	<div class="collapsible-body">

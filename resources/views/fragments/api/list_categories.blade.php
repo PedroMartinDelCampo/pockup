@@ -4,6 +4,6 @@
 	</div>
   	<div class="collapsible-body">
   		<button type="submit" class="btn" id="list_categories_request">Enviar</button>
-  		<textarea readonly id="list_categories_response" class="materialize-textarea"></textarea>
+  		<pre id="list_categories_response"></pre>
 	</div>
 </li>

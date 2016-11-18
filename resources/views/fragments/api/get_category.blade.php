@@ -9,7 +9,7 @@
   				<input type="number" id="get_category_category" />
   			</div>
   			<button type="submit" class="btn" id="get_category_request">Enviar</button>
-  			<textarea readonly id="get_category_response" class="materialize-textarea"></textarea>
+  			<pre id="get_category_response"></pre>
   		</form>
 	</div>
 </li>

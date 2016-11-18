@@ -11,7 +11,7 @@
   				<input type="password" id="access_password" />
   			</div>
   			<button type="button" id="access_request" class="btn">Enviar</button>
-  			<textarea readonly id="access_response" class="materialize-textarea"></textarea>
+  			<pre id="access_response"></pre>
   		</form>
 	</div>
 </li>

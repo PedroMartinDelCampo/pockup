@@ -1,10 +1,24 @@
+function route(url, data) {
+	var tmp = url;
+	for (var key in data) {
+		tmp = tmp.replace('{' + key + '}', data[key]);
+	}
+	return tmp;
+}
+
 function api(url) {
 	return Laravel.baseURL + '/api/' + url;
 }
 
 function write(target) {
 	return function(content) {
-		$(target).html(JSON.stringify(content));
+		var out = '';
+		if (content.responseText) {
+			out = content.responseText;
+		} else {
+			out = content;
+		}
+		$(target).html(JSON.stringify(out, null, 4));
 	}
 }
 
@@ -12,8 +26,8 @@ function Endpoint(name, url, method, request) {
 	var action = api(url);
 	$('#' + name + '_request').click(function() {
 		var target = '#' + name + '_response';
-		request(name, getField(name), action, write(target), 'json')
-			.fail(write(target));
+		var w = write(target);
+		request(name, getField(name), action, w, 'json').fail(w);
 		return false;
 	});
 	$('#' + name + '_url').html('( ' + method + ' => ' + action + ' )');
@@ -48,7 +62,32 @@ Endpoint('list_categories', 'categories', 'GET',
 
 Endpoint('get_category', 'categories/{category}', 'GET',
 	function(name, field, url, success, type) {
-		var category = field('category');
-		return $.get(url.replace('{category}', category), {}, success, type);
+		var data = {};
+		data.category = field('category');
+		return $.get(route(url, data), {}, success, type);
+	}
+);
+
+Endpoint('list_events', 'categories/{category}/events', 'GET',
+	function(name, field, url, success, type) {
+		var data = {};
+		data.category = field('category');
+		return $.get(route(url, data), {}, success, type);
+	}
+);
+
+Endpoint('list_groups', 'categories/{category}/groups', 'GET',
+	function(name, field, url, success, type){
+		var data = {};
+		data.category = field('category');
+		return $.get(route(url, data), {}, success, type);
+	}
+);
+
+Endpoint('list_places', 'categories/{category}/places', 'GET',
+	function(name, field, url, success, type){
+		var data = {};
+		data.category = field('category');
+		return $.get(route(url, data), {}, success, type);
 	}
 );
