@@ -34,7 +34,7 @@ class GroupsController extends Controller
 		$group->name = $request->name;
 		$group->description = $request->description;
 		$group->category_id = $request->category;
-		$group->is_lucrative = $request->is_lucrative;
+		$group->is_lucrative = $request->is_lucrative ? true : false;
 		if ($group->save()) {
 			return response()->json([
 				'success' => true
@@ -47,7 +47,7 @@ class GroupsController extends Controller
 
 	public function destroy(Group $group, Request $request)
 	{
-		if ($request->user = $group->user_id) {
+		if ($request->user == $group->user_id) {
 			$group->delete();
 			return response()->json([
 				'success' => true

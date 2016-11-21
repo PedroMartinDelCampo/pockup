@@ -39,20 +39,24 @@ function getField(endpoint) {
 	};
 }
 
-Endpoint('access', 'access', 'POST', function(name, field, url, success, type) {
-	var data = {};
-	data.email = field('email');
-	data.password = field('password');
-	return $.post(url, data, success, type);
-});
+Endpoint('access', 'access', 'POST',
+	function(name, field, url, success, type) {
+		var data = {};
+		data.email = field('email');
+		data.password = field('password');
+		return $.post(url, data, success, type);
+	}
+);
 
-Endpoint('create_user', 'users', 'POST', function(name, field, url, success, type) {
-	var data = {};
-	data.name = field('name');
-	data.email = field('email');
-	data.password = field('password');
-	return $.post(url, data, success, type);
-});
+Endpoint('create_user', 'users', 'POST',
+	function(name, field, url, success, type) {
+		var data = {};
+		data.name = field('name');
+		data.email = field('email');
+		data.password = field('password');
+		return $.post(url, data, success, type);
+	}
+);
 
 Endpoint('list_categories', 'categories', 'GET',
 	function(name, field, url, success, type) {
@@ -89,5 +93,49 @@ Endpoint('list_places', 'categories/{category}/places', 'GET',
 		var data = {};
 		data.category = field('category');
 		return $.get(route(url, data), {}, success, type);
+	}
+);
+
+Endpoint('create_group', 'groups', 'POST',
+	function(name, field, url, success, type) {
+		var data = {};
+		data.user = field('user');
+		data.name = field('name');
+		data.description = field('description');
+		data.category = field('category');
+		data.is_lucrative = field('is_lucrative');
+		return $.post(url, data, success, type);
+	}
+);
+
+Endpoint('delete_group', 'groups/{group}', 'DELETE',
+	function(name, field, url, success, type) {
+		var urlData = {};
+		urlData.group = field('group');
+		var data = {};
+		data.user = field('user');
+		return $.ajax({
+			url: route(url, urlData),
+			data: data,
+			success: success, 
+			dataType: type,
+			method: 'DELETE'
+		});
+	}
+);
+
+Endpoint('delete_event', 'events/{event}', 'DELETE',
+	function(name, field, url, success, type) {
+		var urlData = {};
+		urlData.event = field('event');
+		var data = {};
+		data.user = field('user');
+		return $.ajax({
+			url: route(url, urlData),
+			data: data,
+			success: success, 
+			dataType: type,
+			method: 'DELETE'
+		});
 	}
 );

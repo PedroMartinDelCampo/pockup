@@ -19,24 +19,12 @@
 		    
 		    @include('fragments.api.list_places')
 		    
-		    <li>
-		      	<div class="collapsible-header">Crear grupo</div>
-		      	<div class="collapsible-body">
-		      		<p>Lorem ipsum dolor sit amet.</p>
-	      		</div>
-		    </li>
-		    <li>
-		      	<div class="collapsible-header">Borrar grupo</div>
-		      	<div class="collapsible-body">
-		      		<p>Lorem ipsum dolor sit amet.</p>
-	      		</div>
-		    </li>
-		    <li>
-		      	<div class="collapsible-header">Borrar evento</div>
-		      	<div class="collapsible-body">
-		      		<p>Lorem ipsum dolor sit amet.</p>
-	      		</div>
-		    </li>
+		    @include('fragments.api.create_group')
+
+		    @include('fragments.api.delete_group')
+
+		    @include('fragments.api.delete_event')
+
 	  	</ul>
 	</div>
 </div>

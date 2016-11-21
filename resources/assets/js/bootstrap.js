@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -33,6 +32,7 @@ Vue.http.interceptors.push((request, next) => {
 require('./forms.js');
 require('./preview.js');
 require('./maps.js');
+
 require('./api.js');
 
 /**
